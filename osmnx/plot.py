@@ -238,7 +238,8 @@ def plot_graph(
 
     # configure axis appearance, save/show figure as specified, and return
     ax = _config_ax(ax, G.graph["crs"], bbox, padding)
-    fig, ax = _save_and_show(fig, ax, save, show, close, filepath, dpi)
+    if save or show:
+        fig, ax = _save_and_show(fig, ax, save, show, close, filepath, dpi)
     utils.log("Finished plotting the graph")
     return fig, ax
 
